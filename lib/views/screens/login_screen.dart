@@ -1,8 +1,12 @@
+// ignore_for_file: avoid_print
+
 import 'package:choira_task/views/contansts.dart';
 import 'package:choira_task/views/screens/onboarting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+
+import '../widgets/custom_button.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -26,7 +30,7 @@ class LoginScreen extends StatelessWidget {
                   child: SizedBox(
                     width: 180,
                     height: 180,
-                    child: Image.asset('assets/frame.png'),
+                    child: Image.asset('assets/images/frame.png'),
                   ),
                 ),
                 Align(

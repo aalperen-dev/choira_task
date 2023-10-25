@@ -17,7 +17,7 @@ class SplasScreen extends StatelessWidget {
     });
     return Scaffold(
       body: Center(
-        child: Image.asset('assets/choira.png').animate().fadeOut(
+        child: Image.asset('assets/images/choira.png').animate().fadeOut(
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeOut,
             delay: const Duration(milliseconds: 800)),

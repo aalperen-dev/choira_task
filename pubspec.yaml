@@ -14,6 +14,10 @@ dependencies:
   intl_phone_field: ^3.2.0 #phone textfield
   flutter_otp_text_field: ^1.1.1 #otp textfield
   timer_count_down: ^2.2.2 #timer
+  contained_tab_bar_view: ^0.8.0
+  cached_video_player: ^2.0.4
+  custom_accordion: ^1.0.0 #accordion
+  
 
 dev_dependencies:
   flutter_test:
@@ -24,3 +28,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/images/
+    - assets/videos/
