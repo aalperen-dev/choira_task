@@ -1,4 +1,8 @@
+// ignore_for_file: unused_import
+
 import 'package:choira_task/views/contansts.dart';
+import 'package:choira_task/views/screens/course_details.dart';
+import 'package:choira_task/views/screens/home_page.dart';
 import 'package:choira_task/views/screens/login_screen.dart';
 import 'package:choira_task/views/screens/otp_screen.dart';
 import 'package:choira_task/views/screens/splash_screen.dart';
@@ -27,11 +31,16 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Choira',
-        theme: ThemeData(
-          scaffoldBackgroundColor: choiraBlue,
+      debugShowCheckedModeBanner: false,
+      title: 'Choira',
+      theme: ThemeData(
+        scaffoldBackgroundColor: choiraBlue,
+        appBarTheme: AppBarTheme(
+          backgroundColor: choiraBlue,
+          elevation: 0,
         ),
-        home: const OTPScreen());
+      ),
+      home: const HomePage(),
+    );
   }
 }
