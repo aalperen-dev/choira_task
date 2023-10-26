@@ -1,13 +1,23 @@
-import 'package:cached_video_player/cached_video_player.dart';
-import 'package:choira_task/views/contansts.dart';
+// import 'package:cached_video_player/cached_video_player.dart';
 import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
+import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
+import '../../config/colors.dart';
 import '../widgets/custom_accordion.dart';
 import '../widgets/custom_navbar.dart';
 import '../widgets/tutor_info_card.dart';
 
 class CourseDetails extends StatelessWidget {
+  static const String routeName = 'course_details';
+  static Route route() {
+    return MaterialPageRoute(
+      settings: const RouteSettings(name: routeName),
+      builder: (context) => const CourseDetails(),
+    );
+  }
+
   const CourseDetails({super.key});
 
   @override
@@ -17,6 +27,7 @@ class CourseDetails extends StatelessWidget {
         leading: IconButton(
           onPressed: () {
             // navigato to homepage
+            Navigator.pushNamed(context, 'home_screen');
           },
           icon: const Icon(Icons.arrow_back_outlined),
         ),
@@ -92,19 +103,21 @@ class LessonsView extends StatefulWidget {
 }
 
 class _LessonsViewState extends State<LessonsView> {
-  late CachedVideoPlayerController controller;
+  // late CachedVideoPlayerController controller;
+  late FlickManager flickManager;
   @override
   void initState() {
-    controller = CachedVideoPlayerController.asset(
-      'assets/videos/learn.mp4',
-      videoPlayerOptions: VideoPlayerOptions(),
-    );
-    controller.initialize().then((value) {
-      controller.pause();
-
-      setState(() {});
-    });
     super.initState();
+    flickManager = FlickManager(
+      videoPlayerController:
+          VideoPlayerController.asset('assets/videos/learn.mp4'),
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    flickManager.dispose();
   }
 
   @override
@@ -118,11 +131,13 @@ class _LessonsViewState extends State<LessonsView> {
         child: Column(
           children: [
             // video
-            controller.value.isInitialized
-                ? AspectRatio(
-                    aspectRatio: controller.value.aspectRatio,
-                    child: CachedVideoPlayer(controller))
-                : const CircularProgressIndicator(),
+            FlickVideoPlayer(
+              flickManager: flickManager,
+              flickVideoWithControls: const FlickVideoWithControls(
+                controls: FlickPortraitControls(),
+              ),
+            ),
+
             // tutor info
             const TutorInfoWidget(),
             // accordion for lesson

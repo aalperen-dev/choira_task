@@ -1,7 +1,6 @@
 import 'package:custom_accordion/custom_accordion.dart';
 import 'package:flutter/material.dart';
-
-import '../contansts.dart';
+import '../../config/colors.dart';
 
 class AccordionForLessonInfo extends StatelessWidget {
   const AccordionForLessonInfo({

@@ -1,19 +1,23 @@
 import 'dart:async';
-import 'package:choira_task/views/screens/onboarting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-class SplasScreen extends StatelessWidget {
-  const SplasScreen({super.key});
+class SplashScreen extends StatelessWidget {
+  static const String routeName = 'splash';
+
+  static Route route() {
+    return MaterialPageRoute(
+      settings: const RouteSettings(name: routeName),
+      builder: (context) => const SplashScreen(),
+    );
+  }
+
+  const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 2), () {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const OnboardingScreen(),
-          ));
+      Navigator.pushNamed(context, 'onboarding');
     });
     return Scaffold(
       body: Center(
