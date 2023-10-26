@@ -2,11 +2,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:choira_task/views/contansts.dart';
-
+import '../../config/colors.dart';
 import '../widgets/custom_button.dart';
 
 class OnboardingScreen extends StatelessWidget {
+  static const String routeName = 'onboarding';
+  static Route route() {
+    return MaterialPageRoute(
+      settings: const RouteSettings(name: routeName),
+      builder: (context) => const OnboardingScreen(),
+    );
+  }
+
   const OnboardingScreen({super.key});
 
   @override
@@ -14,14 +21,16 @@ class OnboardingScreen extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(25.0),
-        child: SafeArea(
-          child: SizedBox(
-            height: MediaQuery.of(context).size.height,
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height - 10,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 // resimler
                 Image.asset(
-                  'assets/onboarding.png',
+                  'assets/images/onboarding.png',
                   fit: BoxFit.cover,
                   width: 312,
                   height: 321,
@@ -61,11 +70,15 @@ class OnboardingScreen extends StatelessWidget {
                   width: 325,
                   height: 165,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       CustomButton(
                         buttonBgColor: Colors.yellow,
                         buttonTxt: 'Login',
-                        onTap: () {},
+                        onTap: () {
+                          // login screen navigate
+                          Navigator.pushNamed(context, 'login');
+                        },
                         buttonTxtColor: Colors.black,
                       ),
                       CustomButton(
@@ -76,7 +89,10 @@ class OnboardingScreen extends StatelessWidget {
                         kWhiteBorder: true,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          // home screen navigate
+                          Navigator.pushNamed(context, 'home_screen');
+                        },
                         child: Text(
                           'Guest Mode',
                           style: GoogleFonts.getFont('Inter',

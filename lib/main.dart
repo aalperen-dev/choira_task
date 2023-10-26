@@ -1,6 +1,8 @@
 // ignore_for_file: unused_import
 
-import 'package:choira_task/views/contansts.dart';
+import 'package:choira_task/config/app_rotures.dart';
+import 'package:choira_task/config/colors.dart';
+import 'package:choira_task/config/contansts.dart';
 import 'package:choira_task/views/screens/course_details.dart';
 import 'package:choira_task/views/screens/home_page.dart';
 import 'package:choira_task/views/screens/login_screen.dart';
@@ -9,24 +11,15 @@ import 'package:choira_task/views/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
+
   runApp(const MainApp());
 }
 
-class MainApp extends StatefulWidget {
+class MainApp extends StatelessWidget {
   const MainApp({super.key});
-
-  @override
-  State<MainApp> createState() => _MainAppState();
-}
-
-class _MainAppState extends State<MainApp> {
-  @override
-  void initState() {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-        overlays: [SystemUiOverlay.bottom]);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +27,23 @@ class _MainAppState extends State<MainApp> {
       debugShowCheckedModeBanner: false,
       title: 'Choira',
       theme: ThemeData(
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: choiraBlueTwo,
+          showUnselectedLabels: false,
+          unselectedIconTheme: const IconThemeData(color: Colors.grey),
+          selectedItemColor: Colors.yellow,
+          selectedIconTheme: const IconThemeData(color: Colors.white),
+          showSelectedLabels: true,
+        ),
         scaffoldBackgroundColor: choiraBlue,
         appBarTheme: AppBarTheme(
           backgroundColor: choiraBlue,
           elevation: 0,
         ),
       ),
-      home: const HomePage(),
+      // home: const HomePage(),
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: SplashScreen.routeName,
     );
   }
 }

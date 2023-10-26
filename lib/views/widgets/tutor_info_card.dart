@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../contansts.dart';
+import '../../config/colors.dart';
 import 'custom_yellow_icon_button.dart';
 
 class TutorInfoWidget extends StatelessWidget {

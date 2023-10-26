@@ -1,14 +1,21 @@
 // ignore_for_file: avoid_print
 
-import 'package:choira_task/views/contansts.dart';
-import 'package:choira_task/views/screens/onboarting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
+import '../../config/colors.dart';
 import '../widgets/custom_button.dart';
 
 class LoginScreen extends StatelessWidget {
+  static const String routeName = 'login';
+  static Route route() {
+    return MaterialPageRoute(
+      settings: const RouteSettings(name: routeName),
+      builder: (context) => const LoginScreen(),
+    );
+  }
+
   const LoginScreen({super.key});
 
   @override
@@ -92,7 +99,10 @@ class LoginScreen extends StatelessWidget {
                     buttonBgColor: choiraYellow,
                     buttonTxt: 'Continue',
                     buttonTxtColor: choiraDark,
-                    onTap: () {},
+                    onTap: () {
+                      // navigate to otp
+                      Navigator.pushNamed(context, 'otp');
+                    },
                     borderRadius: 25,
                   ),
                 ),

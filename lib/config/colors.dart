@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 // Colors
-
 Color choiraBlue = const Color.fromRGBO(10, 23, 51, 1);
 Color choiraBlueTwo = const Color.fromRGBO(20, 32, 59, 1);
 

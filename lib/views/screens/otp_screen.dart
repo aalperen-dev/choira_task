@@ -1,15 +1,22 @@
 // ignore_for_file: avoid_print
 
-import 'package:choira_task/views/contansts.dart';
-import 'package:choira_task/views/screens/onboarting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:timer_count_down/timer_count_down.dart';
 
+import '../../config/colors.dart';
 import '../widgets/custom_button.dart';
 
 class OTPScreen extends StatelessWidget {
+  static const String routeName = 'otp';
+  static Route route() {
+    return MaterialPageRoute(
+      settings: const RouteSettings(name: routeName),
+      builder: (context) => const OTPScreen(),
+    );
+  }
+
   const OTPScreen({super.key});
 
   @override
@@ -135,7 +142,10 @@ class OTPScreen extends StatelessWidget {
                     buttonBgColor: choiraYellow,
                     buttonTxt: 'Continue',
                     buttonTxtColor: choiraDarkThree,
-                    onTap: () {},
+                    onTap: () {
+                      // navigate to home screen
+                      Navigator.pushNamed(context, 'home_screen');
+                    },
                     borderRadius: 25,
                   ),
                 ),
