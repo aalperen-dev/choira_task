@@ -1,12 +1,5 @@
-// ignore_for_file: unused_import
-
 import 'package:choira_task/config/app_rotures.dart';
 import 'package:choira_task/config/colors.dart';
-import 'package:choira_task/config/contansts.dart';
-import 'package:choira_task/views/screens/course_details.dart';
-import 'package:choira_task/views/screens/home_page.dart';
-import 'package:choira_task/views/screens/login_screen.dart';
-import 'package:choira_task/views/screens/otp_screen.dart';
 import 'package:choira_task/views/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
